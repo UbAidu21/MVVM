@@ -3,6 +3,7 @@ import 'package:mvvm/utils/routes/routes.dart';
 import 'package:mvvm/utils/routes/routes_name.dart';
 import 'package:mvvm/view/01_login_view/login_view.dart';
 import 'package:mvvm/view_models/auth_view_model.dart';
+import 'package:mvvm/view_models/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => UserViewModel()),
+        
       ],
       child: MaterialApp(
         title: '<MVVM Architecture>',
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: RoutesName.login,
+        initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,
       ),
     );
